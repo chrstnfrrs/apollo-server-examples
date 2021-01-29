@@ -1,4 +1,6 @@
-# GraphQL Server Example
+# Apollo Server Modules
+
+This is an example of setting up an Apollo GraphQL Server using Apollo modules. Apollo modules allow for combining typeDefs and resolvers into a single module.
 
 ## Installation
 
