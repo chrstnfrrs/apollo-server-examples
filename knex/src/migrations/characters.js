@@ -1,18 +1,18 @@
-import knex from '../config/knex.js'
+import queryBuilder from '../queryBuilder.js'
 
-const createCharactersTable = async () => knex.schema.createTable('characters', (table) => {
+const createCharactersTable = async () => queryBuilder.schema.createTable('characters', (table) => {
   table.increments('id')
   table.string('name')
   table.string('manga')
 })
 
 const characters = async () => {
-  const hasCharacters = await knex.schema.hasTable('characters')
+  const hasCharacters = await queryBuilder.schema.hasTable('characters')
   if (!hasCharacters) {
     await createCharactersTable()
-    await knex.table('characters').insert({name: 'Naruto Uzumaki', manga: 'Naruto'})
-    await knex.table('characters').insert({name: 'Ichigo Kurosaki', manga: 'Bleach'})
-    await knex.table('characters').insert({name: 'Monkey D. Luffy', manga: 'One Piece'})
+    await queryBuilder.table('characters').insert({name: 'Naruto Uzumaki', manga: 'Naruto'})
+    await queryBuilder.table('characters').insert({name: 'Ichigo Kurosaki', manga: 'Bleach'})
+    await queryBuilder.table('characters').insert({name: 'Monkey D. Luffy', manga: 'One Piece'})
   }
 }
 
