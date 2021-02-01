@@ -1,13 +1,13 @@
-import queryBuilder from '../queryBuilder.js'
+import {db, queryBuilder} from '../queryBuilder.js'
 
-const createCharactersTable = async () => queryBuilder.schema.createTable('characters', (table) => {
+const createCharactersTable = async () => db.schema.createTable('characters', (table) => {
   table.increments('id')
   table.string('name')
   table.string('manga')
 })
 
 const characters = async () => {
-  const hasCharacters = await queryBuilder.schema.hasTable('characters')
+  const hasCharacters = await db.schema.hasTable('characters')
   if (!hasCharacters) {
     await createCharactersTable()
     await queryBuilder.table('characters').insert({name: 'Naruto Uzumaki', manga: 'Naruto'})
