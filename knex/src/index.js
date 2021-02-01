@@ -4,8 +4,11 @@ import dotenv from 'dotenv'
 
 import typeDefs from './types/index.js'
 import resolvers from './resolvers/index.js'
+import migrations from './migrations/index.js'
 
 dotenv.config()
+
+migrations()
 
 const app = express()
 
