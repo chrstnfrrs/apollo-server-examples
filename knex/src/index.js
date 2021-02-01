@@ -8,7 +8,7 @@ import migrations from './migrations/index.js'
 
 dotenv.config()
 
-migrations()
+await migrations()
 
 const app = express()
 
