@@ -16,7 +16,7 @@ let characters = [
   },
 ];
 
-export const characterResolver = (context, args, root) => {
+export const characterResolver = (root, args, context) => {
   const {id} = args
 
   const [character] = characters.filter(({id: characterId}) => characterId === id )
@@ -26,7 +26,7 @@ export const characterResolver = (context, args, root) => {
 
 export const charactersResolver = () => characters || []
 
-export const createCharacterResolver = (context, args, root) => {
+export const createCharacterResolver = (root, args, context) => {
   const {input} = args
 
   const id = (Number(characters[characters.length-1].id) + 1).toString()
@@ -38,7 +38,7 @@ export const createCharacterResolver = (context, args, root) => {
   return character
 }
 
-export const deleteCharacterResolver = (context, args, root) => {
+export const deleteCharacterResolver = (root, args, context) => {
   const {id} = args
 
   const preFilter = characters.length
