@@ -6,7 +6,7 @@ import {
   updateCharacter,
 } from '../repositories/characters.js'
 
-export const characterResolver = async (context, args, root) => {
+export const characterResolver = async (root, args, context) => {
   const {id} = args
 
   const [character] = await selectCharacterById(id)
@@ -16,7 +16,7 @@ export const characterResolver = async (context, args, root) => {
 
 export const charactersResolver = async () => await selectCharacters() || []
 
-export const createCharacterResolver = async (context, args, root) => {
+export const createCharacterResolver = async (root, args, context) => {
   const {input} = args
 
   const [character] = await insertCharacter(input)
@@ -26,7 +26,7 @@ export const createCharacterResolver = async (context, args, root) => {
   return character
 }
 
-export const updateCharacterResolver = async (context, args, root) => {
+export const updateCharacterResolver = async (root, args, context) => {
   const {id, input} = args
 
   const [character] = await updateCharacter(id, input)
@@ -36,7 +36,7 @@ export const updateCharacterResolver = async (context, args, root) => {
   return character
 }
 
-export const deleteCharacterResolver = async (context, args, root) => {
+export const deleteCharacterResolver = async (root, args, context) => {
   const {id} = args
 
   const status = await deleteCharacter(id)
