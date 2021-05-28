@@ -76,7 +76,7 @@ mutation createKaneki {
 
 mutation switchKanekiToBell {
   updateCharacter(
-    id: 7,
+    id: 4,
     input:{
       name:"Bell Cranel",
       manga:"Is it wrong to pick up girls in a dungeon?"
